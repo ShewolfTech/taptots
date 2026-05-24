@@ -135,9 +135,10 @@ export function startBackgroundMusic() {
   const totalLoop = notes.length * noteDuration;
 
   function playLoop(startTime: number) {
+    const safeCtx = ctx!;  
     notes.forEach((freq, i) => {
-      const osc = ctx.createOscillator();
-      const noteGain = ctx.createGain();
+      const osc = safeCtx.createOscillator();
+      const noteGain = safeCtx.createGain();
       osc.connect(noteGain);
       noteGain.connect(bgMusicGain!);
 
@@ -155,7 +156,7 @@ export function startBackgroundMusic() {
 
     // Schedule the next loop just before this one ends
     setTimeout(() => {
-      if (bgMusicPlaying) playLoop(ctx.currentTime + 0.05);
+      if (bgMusicPlaying) playLoop(safeCtx.currentTime + 0.05);
     }, (totalLoop - 0.3) * 1000);
   }
 
