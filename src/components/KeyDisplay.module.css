@@ -1,0 +1,206 @@
+/* KeyDisplay.module.css - Toddler-friendly, vibrant, animated */
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.stage.dark {
+  filter: brightness(0.75);
+}
+
+/* ── Main card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 2vh, 24px);
+  animation: cardBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  will-change: transform, opacity;
+  text-align: center;
+  padding: clamp(16px, 4vw, 48px);
+  border-radius: 40px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
+  max-width: 90vw;
+}
+
+@keyframes cardBounce {
+  0%   { transform: scale(0.3) rotate(-8deg); opacity: 0; }
+  60%  { transform: scale(1.08) rotate(2deg); opacity: 1; }
+  80%  { transform: scale(0.96) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ── Emoji ── */
+.emoji {
+  font-size: clamp(72px, 18vw, 200px);
+  line-height: 1;
+  animation: emojiPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+  user-select: none;
+}
+
+@keyframes emojiPop {
+  0%   { transform: scale(0) rotate(-20deg); }
+  70%  { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ── Letter ── */
+.letter {
+  font-family: 'Fredoka One', 'Nunito', 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+  font-size: clamp(100px, 30vw, 340px);
+  font-weight: 900;
+  line-height: 0.9;
+  color: white;
+  text-shadow:
+    0 8px 0 rgba(0,0,0,0.15),
+    0 12px 30px rgba(0,0,0,0.2),
+    inset 0 0 0 4px rgba(255,255,255,0.5);
+  letter-spacing: -2px;
+  animation: letterSlam 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both;
+  user-select: none;
+}
+
+@keyframes letterSlam {
+  0%   { transform: translateY(-40px) scale(1.4); opacity: 0; }
+  60%  { transform: translateY(8px) scale(0.95); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ── Word label ── */
+.word {
+  font-family: 'Fredoka One', 'Nunito', 'Comic Sans MS', cursive, sans-serif;
+  font-size: clamp(22px, 5vw, 72px);
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
+  animation: wordFade 0.4s ease 0.2s both;
+  user-select: none;
+  white-space: nowrap;
+}
+
+@keyframes wordFade {
+  0%   { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Welcome screen ── */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.welcomeEmoji {
+  font-size: clamp(64px, 15vw, 160px);
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
+}
+
+.welcomeText {
+  font-family: 'Fredoka One', 'Nunito', cursive, sans-serif;
+  font-size: clamp(32px, 8vw, 96px);
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+}
+
+.welcomeSub {
+  font-family: 'Fredoka One', 'Nunito', cursive, sans-serif;
+  font-size: clamp(16px, 4vw, 40px);
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 1px;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-16px); }
+}
+
+/* ── Encouragement toast ── */
+.encouragement {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Fredoka One', 'Nunito', cursive, sans-serif;
+  font-size: clamp(28px, 6vw, 72px);
+  font-weight: 900;
+  color: white;
+  background: rgba(0,0,0,0.2);
+  padding: 12px 36px;
+  border-radius: 100px;
+  white-space: nowrap;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: toastIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+             toastOut 0.4s ease 1.6s both;
+  pointer-events: none;
+  z-index: 20;
+}
+
+@keyframes toastIn {
+  0%   { transform: translateX(-50%) translateY(-40px) scale(0.7); opacity: 0; }
+  100% { transform: translateX(-50%) translateY(0) scale(1);      opacity: 1; }
+}
+
+@keyframes toastOut {
+  0%   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px) scale(0.9); }
+}
+
+/* ── Particles ── */
+.particle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleBurst 0.8s ease-out both;
+  z-index: 5;
+}
+
+@keyframes particleBurst {
+  0%   { transform: scale(0) translate(0, 0); opacity: 1; }
+  100% { transform: scale(1) translate(
+    calc(var(--tx, 40px)),
+    calc(var(--ty, -60px))
+  ); opacity: 0; }
+}
+
+.particle:nth-child(8n+1)  { --tx: 80px;  --ty: -80px; }
+.particle:nth-child(8n+2)  { --tx: -80px; --ty: -80px; }
+.particle:nth-child(8n+3)  { --tx: 80px;  --ty: 80px;  }
+.particle:nth-child(8n+4)  { --tx: -80px; --ty: 80px;  }
+.particle:nth-child(8n+5)  { --tx: 120px; --ty: 0;     }
+.particle:nth-child(8n+6)  { --tx: -120px;--ty: 0;     }
+.particle:nth-child(8n+7)  { --tx: 0;     --ty: -120px;}
+.particle:nth-child(8n+8)  { --tx: 0;     --ty: 120px; }
+
+/* ── Mode tag ── */
+.modeTag {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Fredoka One', cursive, sans-serif;
+  font-size: clamp(14px, 2.5vw, 24px);
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.2);
+  padding: 6px 20px;
+  border-radius: 100px;
+  pointer-events: none;
+}

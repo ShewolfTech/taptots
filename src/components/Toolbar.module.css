@@ -1,0 +1,86 @@
+/* Toolbar.module.css */
+
+.toolbar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: opacity 0.3s ease;
+}
+
+.toolbar:not(:hover) {
+  opacity: 0.4;
+}
+
+.toolbar:hover {
+  opacity: 1;
+}
+
+.toolbar.dark {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.group {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.group + .group {
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn {
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn.active {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile: smaller */
+@media (max-width: 480px) {
+  .toolbar {
+    top: 8px;
+    right: 8px;
+    padding: 6px 8px;
+  }
+  .btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
