@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './MobileKeyPad.module.css';
+import styles from './MobileKeypad.module.css';
 
 interface KeyPadProps {
   onKey: (key: string) => void;

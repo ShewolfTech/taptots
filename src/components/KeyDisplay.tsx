@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState, useCallback, useRef } from 'react';
-    import MobileKeyPad from './MobileKeypad';
-    import styles from './KeyDisplay.module.css';
+import MobileKeyPad from './MobileKeypad';
+import styles from './KeyDisplay.module.css';
 import {
   IGNORED_KEYS,
   ENCOURAGEMENTS,
@@ -12,7 +12,7 @@ import {
   type KeyMode,
 } from '@/lib/keyData';
 import { speakLetter, speakNumber, speakEncouragement, initSpeech } from '@/lib/speech';
-import { playKeyPress, playEncouragement, playPianoNote, resumeAudio, PIANO_NOTES } from '@/lib/sounds';
+import { playKeyPress, playEncouragement, playPianoNote, resumeAudio } from '@/lib/sounds';
 
 interface DisplayState {
   letter: string;
@@ -85,7 +85,7 @@ export default function KeyDisplay({ mode, pianoMode, darkMode, showMobileKeypad
       // Piano mode
       if (pianoMode) {
         playPianoNote(upper);
-      
+
         // Map key → note name for display
         const noteNames: Record<string, string> = {
           A: 'C4', S: 'D4', D: 'E4', F: 'F4', G: 'G4',
@@ -93,7 +93,7 @@ export default function KeyDisplay({ mode, pianoMode, darkMode, showMobileKeypad
           W: 'C#4', E: 'D#4', T: 'F#4', Y: 'G#4', U: 'A#4',
           O: 'C#5', P: 'D#5',
         };
-      
+
         setDisplay((prev) => ({
           letter: upper,
           word: noteNames[upper] ?? '🎵',   // ← shows "C4", "D4", etc.
