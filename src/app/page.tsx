@@ -15,6 +15,14 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [musicOn, setMusicOn] = useState(false);
+  // Add state — auto-show on touch devices
+  const [showKeypad, setShowKeypad] = useState(false);
+
+  // Detect touch device on mount and show keypad automatically
+  useEffect(() => {
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    setShowKeypad(isTouch);
+  }, []);
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -173,7 +181,7 @@ export default function Home() {
   // ── Main app ───────────────────────────────────────────────────
   return (
     <main className={`${styles.main} ${darkMode ? styles.dark : ''}`}>
-      <KeyDisplay mode={mode} pianoMode={pianoMode} darkMode={darkMode} />
+      <KeyDisplay mode={mode} pianoMode={pianoMode} darkMode={darkMode} showMobileKeypad={showKeypad} />
       <Toolbar
         mode={mode}
         pianoMode={pianoMode}

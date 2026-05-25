@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState, useCallback, useRef } from 'react';
-import styles from './KeyDisplay.module.css';
+    import MobileKeyPad from './MobileKeypad';
+    import styles from './KeyDisplay.module.css';
 import {
   IGNORED_KEYS,
   ENCOURAGEMENTS,
@@ -26,12 +27,13 @@ interface KeyDisplayProps {
   mode: KeyMode;
   pianoMode: boolean;
   darkMode: boolean;
+  showMobileKeypad: boolean;
 }
 
 let pressCount = 0;
 const ENCOURAGEMENT_EVERY = 5;
 
-export default function KeyDisplay({ mode, pianoMode, darkMode }: KeyDisplayProps) {
+export default function KeyDisplay({ mode, pianoMode, darkMode, showMobileKeypad }: KeyDisplayProps) {
   const [display, setDisplay] = useState<DisplayState | null>(null);
   const [encouragement, setEncouragement] = useState<string | null>(null);
   const [particles, setParticles] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
@@ -200,6 +202,9 @@ export default function KeyDisplay({ mode, pianoMode, darkMode }: KeyDisplayProp
       {pianoMode && (
         <div className={styles.modeTag}>🎹 Piano Mode</div>
       )}
+
+      {/* On-screen keypad */}
+      {showMobileKeypad && <MobileKeyPad onKey={handleKey} />}
     </div>
   );
 }
