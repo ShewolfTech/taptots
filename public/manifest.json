@@ -1,6 +1,6 @@
 {
-  "name": "ToddlerKeys - Learn Letters & Numbers",
-  "short_name": "ToddlerKeys",
+  "name": "TapTots - Learn Letters & Numbers",
+  "short_name": "TapTots",
   "description": "A fun, colorful keyboard learning app for toddlers! Press any key to learn letters and numbers.",
   "start_url": "/",
   "display": "fullscreen",
@@ -24,7 +24,7 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "ToddlerKeys on Desktop"
+      "label": "TapTots on Desktop"
     }
   ]
 }

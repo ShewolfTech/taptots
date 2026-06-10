@@ -1,4 +1,4 @@
-// File: D:\Sonia\Personal-projects\toddler-keys-edits\toddler-keys\src\app\layout.tsx
+// File: C:\Users\hp\Desktop\migrate\Sonia\Personal-projects\toddler-keys-edits\toddler-keys\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

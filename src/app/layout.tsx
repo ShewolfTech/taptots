@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ToddlerKeys - Learn Letters & Numbers',
+  title: 'TapTots - Learn Letters & Numbers',
   description: 'A fun keyboard learning app for toddlers! Press any key to learn letters and numbers with sounds and animations.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'ToddlerKeys',
+    title: 'TapTots',
   },
   formatDetection: { telephone: false },
   icons: {

@@ -1,5 +1,5 @@
-// ToddlerKeys Service Worker v1.0
-const CACHE_NAME = 'toddler-keys-v1';
+// Taptots Service Worker v1.0
+const CACHE_NAME = 'taptots-v1';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',

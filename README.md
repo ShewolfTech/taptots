@@ -1,4 +1,4 @@
-# 🎹 ToddlerKeys — Learn Letters & Numbers
+# 🎹 TapTots — Learn Letters & Numbers
 
 A **child-friendly Progressive Web App** for toddlers under 3. Press any key on the keyboard and watch colorful animations, hear the letter/number spoken aloud, and see a matching emoji and word!
 
